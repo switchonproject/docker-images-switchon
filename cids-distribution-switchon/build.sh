@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t cismet/cids-distribution-switchon:latest .
+docker build -t switchon/cids-distribution-switchon:latest --no-cache=true .

@@ -20,7 +20,13 @@ COPY cidsDistribution ${CIDS_DISTRIBUTION_DIR}/
 # don't add cidsDistribution/lib/.local.templates to .dockerignore in order to make this work
 COPY cidsDistribution/lib/.local.templates ${CIDS_LOCAL_DIR}/
 
+# optional: copy local maven repository to speed up image generation 
+# COPY ~/.m2/repository ${MAVEN_LIB_DIR}
+
 RUN ${CIDS_DISTRIBUTION_DIR}/utils/build_autodistribution.sh
+
+# brute force signing :-(!
+RUN ${CIDS_DISTRIBUTION_DIR}/utils/sign_all.sh
 
 RUN rm -rf ${CIDS_DISTRIBUTION_DIR}/lib/.local.templates
 RUN rm -rf ${CIDS_DISTRIBUTION_DIR}/.private
