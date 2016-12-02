@@ -1,2 +1,8 @@
-build.bat
 build.sh
+build.sh
+run.sh
+start.sh
+stop.sh
+docker-compose.yml
+cidsDistribution/client
+cidsDistribution/server
