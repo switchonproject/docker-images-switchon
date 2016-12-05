@@ -4,5 +4,6 @@ run.sh
 start.sh
 stop.sh
 docker-compose.yml
+cids-integration-base
 cidsDistribution/client
 cidsDistribution/server
