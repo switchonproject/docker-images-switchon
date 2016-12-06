@@ -47,6 +47,9 @@
                     <homepage>http://www.cismet.de</homepage>
                     <codebase>http://localhost/</codebase>
                     <!--<m2codebase>__MAVEN_LIB_DIR__</m2codebase>-->
+                    <sign>false</sign>
+                    <checkSignature>false</checkSignature>
+                    <verbose>true</verbose>
                     <accountExtension>Switchon</accountExtension>
                     <outputDirectory>__DATA_DIR__</outputDirectory>
                     <dependencyConfiguration>

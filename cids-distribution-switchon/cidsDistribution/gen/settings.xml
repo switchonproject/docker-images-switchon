@@ -7,6 +7,12 @@
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
+            <properties>
+                <!-- used in cismet-parent -->
+                <de.cismet.keystore.path>__KEYSTORE__</de.cismet.keystore.path>
+                <!-- used in cismet-parent -->
+                <de.cismet.keystore.pass>__KEYSTORE_PASSWORD__</de.cismet.keystore.pass>
+            </properties>
         </profile>
         <profile>
             <activation>
@@ -15,33 +21,17 @@
             <id>dev</id>
             <repositories>
                 <repository>
-                    <id>eig-cismet-repo</id>
-                    <url>https://repo.cismet.de/repo</url>
-                    <releases>
-                        <enabled>true</enabled>
-                    </releases>
-                    <snapshots>
-                        <enabled>true</enabled>
-                    </snapshots>
-                </repository>
-                <repository>
                     <id>cismet-repo</id>
                     <url>https://repo.cismet.de/repo</url>
                     <releases>
                         <enabled>true</enabled>
+                        <updatePolicy>never</updatePolicy>
+                        <checksumPolicy>warn</checksumPolicy>    
                     </releases>
                     <snapshots>
                         <enabled>true</enabled>
-                    </snapshots>
-                </repository>
-                <repository>
-                    <id>cismet-dev</id>
-                    <url>https://repo.cismet.de/repo</url>
-                    <releases>
-                        <enabled>true</enabled>
-                    </releases>
-                    <snapshots>
-                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy> 
+                        <checksumPolicy>fail</checksumPolicy>                    
                     </snapshots>
                 </repository>
             </repositories>
@@ -51,9 +41,13 @@
                     <url>https://repo.cismet.de/repo</url>
                     <releases>
                         <enabled>true</enabled>
+                        <updatePolicy>never</updatePolicy>
+                        <checksumPolicy>warn</checksumPolicy>    
                     </releases>
                     <snapshots>
                         <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy> 
+                        <checksumPolicy>fail</checksumPolicy>                    
                     </snapshots>
                 </pluginRepository>
             </pluginRepositories>
@@ -69,22 +63,7 @@
     </mirrors>
     <servers>
         <server>
-            <id>cismet-dev</id>
-            <username>__SERVER_USERNAME__</username>
-            <password>__SERVER_PASSWORD__</password>
-        </server>
-        <server>
-            <id>eig-cismet-repo</id>
-            <username>__SERVER_USERNAME__</username>
-            <password>__SERVER_PASSWORD__</password>
-        </server>
-        <server>
             <id>cismet-repo</id>
-            <username>__SERVER_USERNAME__</username>
-            <password>__SERVER_PASSWORD__</password>
-        </server>
-        <server>
-            <id>central</id>
             <username>__SERVER_USERNAME__</username>
             <password>__SERVER_PASSWORD__</password>
         </server>
