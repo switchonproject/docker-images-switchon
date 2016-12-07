@@ -15,3 +15,4 @@ docker run -it -p 9986:9986 -p 8890:8890 -p 80:80 \
 #    -v ~/git_work/docker-images/cids-distribution/import/container_ctl.sh:/container_ctl.sh \
 #       -v ~/git_work/docker-images-switchon/cids-distribution-switchon/cidsDistribution/client/:/cidsDistribution/client/ \
 #     -v ~/git_work/docker-images/cids-distribution/cidsDistribution/utils/:/cidsDistribution/utils/ \
+#    -v ~/git_work/docker-images-switchon/cids-distribution-switchon/cidsDistribution/gen/:/cidsDistribution/gen/ \

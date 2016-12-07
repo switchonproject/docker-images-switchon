@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <settings>
-    <localRepository>__MAVEN_LIB_DIR__</localRepository>
+    <localRepository>${env.MAVEN_LIB_DIR}</localRepository>
     <profiles>
         <profile>
             <id>global-properties</id>
@@ -18,14 +18,14 @@
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
-            <id>dev</id>
+            <id>build-autodistribution</id>
             <repositories>
                 <repository>
                     <id>cismet-repo</id>
                     <url>https://repo.cismet.de/repo</url>
                     <releases>
                         <enabled>true</enabled>
-                        <updatePolicy>never</updatePolicy>
+                        <updatePolicy>always</updatePolicy>
                         <checksumPolicy>warn</checksumPolicy>    
                     </releases>
                     <snapshots>
@@ -36,12 +36,27 @@
                 </repository>
             </repositories>
             <pluginRepositories>
+<!--                <pluginRepository>
+                    <id>cismet-repo</id>
+                    <url>file://${env.MAVEN_LIB_DIR}</url>
+                    <releases>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                        <checksumPolicy>warn</checksumPolicy>    
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy> 
+                        <checksumPolicy>fail</checksumPolicy>                    
+                    </snapshots>
+                </pluginRepository>
+-->
                 <pluginRepository>
-                    <id>eig-cismet-repo</id>
+                    <id>cismet-repo</id>
                     <url>https://repo.cismet.de/repo</url>
                     <releases>
                         <enabled>true</enabled>
-                        <updatePolicy>never</updatePolicy>
+                        <updatePolicy>always</updatePolicy>
                         <checksumPolicy>warn</checksumPolicy>    
                     </releases>
                     <snapshots>
@@ -73,4 +88,7 @@
             <password>__SERVER_PASSWORD__</password>
         </server>
     </servers>
+    <activeProfiles>
+        <activeProfile>build-autodistribution</activeProfile>
+    </activeProfiles>
 </settings>

@@ -3,8 +3,10 @@ run.sh
 start.sh
 stop.sh
 run-container.sh
+copy-libs.sh
 docker-compose.yml
 cids-integration-base
 cidsDistribution/client
 cidsDistribution/server
 cidsDistribution/lib/localSwitchon/
+cidsDistribution/lib/m2
