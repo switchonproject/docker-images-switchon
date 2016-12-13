@@ -8,5 +8,4 @@ docker-compose.yml
 cids-integration-base
 cidsDistribution/client
 cidsDistribution/server
-cidsDistribution/lib/localSwitchon/
 cidsDistribution/lib/m2

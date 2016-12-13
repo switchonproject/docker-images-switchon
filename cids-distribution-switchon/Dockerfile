@@ -19,9 +19,10 @@ ENV CIDS_STARTER_DIR ${CIDS_LIB_DIR}/starter${CIDS_ACCOUNT_EXTENSION}
 # lib/m2 is exclueded by defulat -< use baseimage 'cids-distribution-cache' instead!
 COPY cidsDistribution/ ${CIDS_DISTRIBUTION_DIR}/
 
+# DISABLED -> not necessarry after separation of switchon-docker-images into docker-images and docker-volumes
 # local libs are required during image build time -> copy from templates to lib/localSwitchon
 # don't add cidsDistribution/lib/.local.templates to .dockerignore in order to make this work
-COPY cidsDistribution/lib/.local.templates ${CIDS_LOCAL_DIR}/
+# COPY cidsDistribution/lib/.local.templates ${CIDS_LOCAL_DIR}/
 
 # prepare dowloads all dependencies and uses the build cache
 # this image inherits from cids-distribution-cache, so dependencies should be there already
@@ -55,9 +56,8 @@ RUN mkdir -p ${CIDS_CLIENT_DIR} \
 
 # WARNING: private data is still present in intermediate image layers! Don't push the image to public registries!
 # See https://github.com/docker/docker/issues/13490
-RUN rm -rf ${CIDS_DISTRIBUTION_DIR}/.private
-RUN rm -rf ${CIDS_DISTRIBUTION_DIR}/lib/.local.templates
-RUN rm -rf ${CIDS_GENERATOR_DIR}
+RUN rm -rf ${CIDS_DISTRIBUTION_DIR}/.private \
+    && rm -rf ${CIDS_GENERATOR_DIR}
 
 # add /tmp as volume since it may contain data that changes often 
 VOLUME /tmp
