@@ -45,7 +45,7 @@
                 <configuration>
                     <vendor>cismet</vendor>
                     <homepage>http://www.cismet.de</homepage>
-                    <codebase>http://localhost/</codebase>
+                    <codebase>${env.CIDS_CODEBASE}</codebase>
                     <!--<m2codebase>${env.MAVEN_LIB_DIR}</m2codebase>-->
                     <sign>false</sign>
                     <checkSignature>false</checkSignature>
@@ -75,7 +75,7 @@
                             <artifactId>cids-custom-switchon</artifactId>
                             <generateJnlp>true</generateJnlp>
                             <generateJar>false</generateJar>
-                            <version>2.0-SNAPSHOT</version>
+                            <version>1.0-SNAPSHOT</version>
                             <starterConfiguration>
                                 <title>SWITCH-ON SIP Expert GUI</title>
                                 <java>

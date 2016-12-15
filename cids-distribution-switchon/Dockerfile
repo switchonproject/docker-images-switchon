@@ -6,13 +6,19 @@ LABEL de.cismet.cids.distribution.switchon.name="cids-distribution-switchon imag
       de.cismet.cids.distribution.switchon.version="cidsDistributionSwitchon-1.0" \
       de.cismet.cids.distribution.switchon.descripton="cids SWITCH-ON Distribution Runtime Image"
 
-ENV CIDS_ACCOUNT_EXTENSION="Switchon"
+ENV CIDS_ACCOUNT_EXTENSION Switchon
+ENV CIDS_CODEBASE http://switchon-docker.cismet.de
 ENV CIDS_LOCAL_DIR ${CIDS_LIB_DIR}/local${CIDS_ACCOUNT_EXTENSION}
 ENV CIDS_STARTER_DIR ${CIDS_LIB_DIR}/starter${CIDS_ACCOUNT_EXTENSION}
 
-#EXPOSE 9986
-#EXPOSE 8890
-#EXPOSE 80
+# expose cids-server port
+EXPOSE 9986
+
+# expose cids-server-rest port
+EXPOSE 8890
+
+# expose ngnix port
+EXPOSE 80
 
 # use .dockerignore to control which files go into the image and which not (faster!)
 # cache is used if settings.xml & POM.xml do not change
@@ -46,7 +52,7 @@ ARG expire_after=never
 # update snapshots and spossibly add new unsigned dependencies to lib/m2
 RUN ${CIDS_DISTRIBUTION_DIR}/utils/build_autodistribution.sh
 
-# force signing of new snapshot dependencies
+# force signing of *new* snapshot dependencies
 RUN ${CIDS_DISTRIBUTION_DIR}/utils/sign_all.sh
 
 # copy generated client jnlp to lib/start dir and generate security.jar-> required since host mounted 
