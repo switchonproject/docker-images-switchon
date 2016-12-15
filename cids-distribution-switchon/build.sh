@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# add --squash build flag once it is available to remove .private data from image history
+# See https://github.com/docker/docker/pull/22641#issuecomment-266156133
+
 # brute force invalidate complete cache
 #docker build -t switchon/cids-distribution-switchon:latest --no-cache=true .
 
