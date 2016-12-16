@@ -25,11 +25,6 @@ EXPOSE 80
 # lib/m2 is exclueded by defulat -< use baseimage 'cids-distribution-cache' instead!
 COPY cidsDistribution/ ${CIDS_DISTRIBUTION_DIR}/
 
-# DISABLED -> not necessarry after separation of switchon-docker-images into docker-images and docker-volumes
-# local libs are required during image build time -> copy from templates to lib/localSwitchon
-# don't add cidsDistribution/lib/.local.templates to .dockerignore in order to make this work
-# COPY cidsDistribution/lib/.local.templates ${CIDS_LOCAL_DIR}/
-
 # prepare dowloads all dependencies and uses the build cache
 # this image inherits from cids-distribution-cache, so dependencies should be there already
 # RUN ${CIDS_DISTRIBUTION_DIR}/utils/prepare_autodistribution.sh
