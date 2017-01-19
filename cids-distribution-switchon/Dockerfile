@@ -3,9 +3,9 @@ FROM cismet/cids-distribution-cache:latest
 MAINTAINER Pascal Dihé <pascal.dihe@cismet.de>
 
 LABEL de.cismet.cids.distribution.switchon.name="cids-distribution-switchon image" \
-      de.cismet.cids.distribution.switchon.version="1.0" \
-      de.cismet.cids.distribution.switchon.tag.docker="1.0" \
-      de.cismet.cids.distribution.switchon.tag.git="cidsDistributionSwitchon-1.0" \
+      de.cismet.cids.distribution.switchon.version="4.0" \
+      de.cismet.cids.distribution.switchon.tag.docker="4.0" \
+      de.cismet.cids.distribution.switchon.tag.git="cidsDistributionSwitchon-4.0" \
       de.cismet.cids.distribution.switchon.descripton="cids SWITCH-ON Distribution Runtime Image"
 
 ENV CIDS_ACCOUNT_EXTENSION Switchon
