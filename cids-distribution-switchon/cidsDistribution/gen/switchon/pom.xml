@@ -6,27 +6,27 @@
     <parent>
         <groupId>de.cismet</groupId>
         <artifactId>global-parent</artifactId>
-        <version>3.0.1</version>
+        <version>3.4</version>
     </parent>
 
     <groupId>de.cismet.cids.custom.switchon</groupId>
     <artifactId>switchon-dist</artifactId>
-    <version>1.2-SNAPSHOT</version>
+    <version>4.0</version>
     <packaging>pom</packaging>
 
-    <name>cids Custom Switch-On Distribution v3</name>
+    <name>cids Custom Switch-On Distribution v4.0</name>
     <description>Generates a cids distribution</description>
 
     <dependencies>
         <dependency>
             <groupId>de.cismet.cids.custom.switchon</groupId>
             <artifactId>cids-custom-switchon</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>4.0</version>
         </dependency>
         <dependency>
             <groupId>de.cismet.cids.custom.switchon</groupId>
             <artifactId>cids-custom-switchon-server</artifactId>
-            <version>2.0-SNAPSHOT</version>
+            <version>4.0</version>
         </dependency>
     </dependencies>
 
@@ -35,7 +35,7 @@
             <plugin>
                 <groupId>de.cismet.cids</groupId>
                 <artifactId>cids-maven-plugin</artifactId>
-                <version>2.2-SNAPSHOT</version>
+                <version>4.0</version>
                 <executions>
                     <execution>
                         <goals>
@@ -57,14 +57,14 @@
                         <dependencyEx>
                             <groupId>de.cismet.cids.custom.switchon</groupId>
                             <artifactId>cids-custom-switchon-server</artifactId>
-                            <version>2.0-SNAPSHOT</version>
+                            <version>4.0</version>
                             <generateJnlp>false</generateJnlp>
                             <generateJar>true</generateJar>
                             <additionalDependencies>
                                 <dependency>
                                     <groupId>de.cismet.commons</groupId>
                                     <artifactId>cids-utils</artifactId>
-                                    <version>2.0-SNAPSHOT</version>
+                                    <version>4.0</version>
                                 </dependency>
                             </additionalDependencies>
                             <starterConfiguration>
@@ -76,7 +76,7 @@
                             <artifactId>cids-custom-switchon</artifactId>
                             <generateJnlp>true</generateJnlp>
                             <generateJar>false</generateJar>
-                            <version>1.0-SNAPSHOT</version>
+                            <version>4.0</version>
                             <starterConfiguration>
                                 <title>SWITCH-ON SIP Expert GUI</title>
                                 <java>
