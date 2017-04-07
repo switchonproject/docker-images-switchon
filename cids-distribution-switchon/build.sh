@@ -8,7 +8,7 @@
 
 # set build timestamp to selectively invalidate cache after dockerfile instruction
 # RELEASE BUILD
-# docker build -t switchon/cids-distribution-switchon:latest -t switchon/cids-distribution-switchon:4.0 --build-arg expire_after=$(date +%Y-%m-%d:%H:%M:%S) .
+docker build -t switchon/cids-distribution-switchon:latest -t switchon/cids-distribution-switchon:5.0 --build-arg expire_after=$(date +%Y-%m-%d:%H:%M:%S) .
 
 # DEV BUILD
-docker build -t switchon/cids-distribution-switchon:4.1-SNAPSHOT -t switchon/cids-distribution-switchon:latest-snapshot --build-arg expire_after=$(date +%Y-%m-%d:%H:%M:%S) .
+#docker build -t switchon/cids-distribution-switchon:5.1-SNAPSHOT -t switchon/cids-distribution-switchon:latest-snapshot --build-arg expire_after=$(date +%Y-%m-%d:%H:%M:%S) .

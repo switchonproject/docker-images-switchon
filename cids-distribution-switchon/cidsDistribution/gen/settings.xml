@@ -12,13 +12,15 @@
                 <de.cismet.keystore.path>__KEYSTORE__</de.cismet.keystore.path>
                 <!-- used in cismet-parent -->
                 <de.cismet.keystore.pass>__KEYSTORE_PASSWORD__</de.cismet.keystore.pass>
+                
+                <!--
+                    Set distribution specific properties for distribution modules
+                    and override properties defined in parent pom.xml
+                -->
+                <de.cismet.cidsCodebase>${env.CIDS_CODEBASE}</de.cismet.cidsCodebase>
+                <de.cismet.cidsDistDir>${env.CIDS_DISTRIBUTION_DIR}</de.cismet.cidsDistDir>
+                <de.cismet.cidsAccountExtension>${env.CIDS_ACCOUNT_EXTENSION}</de.cismet.cidsAccountExtension>
             </properties>
-        </profile>
-        <profile>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <id>build-autodistribution</id>
             <repositories>
                 <repository>
                     <id>cismet-repo</id>
@@ -36,7 +38,7 @@
                 </repository>
             </repositories>
             <pluginRepositories>
-<!--                <pluginRepository>
+<!--        <pluginRepository>
                     <id>cismet-repo</id>
                     <url>file://${env.MAVEN_LIB_DIR}</url>
                     <releases>
@@ -89,6 +91,7 @@
         </server>
     </servers>
     <activeProfiles>
-        <activeProfile>build-autodistribution</activeProfile>
+        <activeProfile>global-properties</activeProfile>
+        <activeProfile>cismet-inhouse-dev</activeProfile>
     </activeProfiles>
 </settings>
