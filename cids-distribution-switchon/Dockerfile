@@ -3,9 +3,9 @@ FROM cismet/cids-distribution-cache:5.0
 MAINTAINER Pascal Dihé <pascal.dihe@cismet.de>
 
 LABEL de.cismet.cids.distribution.switchon.name="cids-distribution-switchon image" \
-      de.cismet.cids.distribution.switchon.version="5.0" \
-      de.cismet.cids.distribution.switchon.tag.docker="5.0" \
-      de.cismet.cids.distribution.switchon.tag.git="cidsDistributionSwitchon-5.0" \
+      de.cismet.cids.distribution.switchon.version="5.0-SNAPSHOT" \
+      de.cismet.cids.distribution.switchon.tag.docker="5.0-SNAPSHOT" \
+      de.cismet.cids.distribution.switchon.tag.git="cidsDistributionSwitchon-5.0-SNAPSHOT" \
       de.cismet.cids.distribution.switchon.descripton="cids SWITCH-ON Distribution Runtime Image"
 
 ENV CIDS_ACCOUNT_EXTENSION Switchon
@@ -30,11 +30,12 @@ EXPOSE 80
 
 # use .dockerignore to control which files go into the image and which not (faster!)
 # cache is used if settings.xml & POM.xml do not change
-# lib/m2 is exclueded by defulat -< use baseimage 'cids-distribution-cache' instead!
+# lib/m2 is excluded by default -> use baseimage 'cids-distribution-cache' instead!
 COPY cidsDistribution/ ${CIDS_DISTRIBUTION_DIR}/
 
-# download the cids-distribution-switchon auto distribution 
-RUN curl -fsSL https://github.com/switchonproject/cids-distribution-switchon/archive/v5.1.tar.gz | tar -xzC ${CIDS_GENERATOR_DIR}/
+# download the cids-distribution-switchon SNAPSHOT or RELEASE auto distribution 
+# RUN curl -fsSL https://github.com/switchonproject/cids-distribution-switchon/archive/v5.1.tar.gz | tar -xzC ${CIDS_GENERATOR_DIR}/
+RUN curl -fsSL https://github.com/switchonproject/cids-distribution-switchon/archive/dev.tar.gz | tar -xzC ${CIDS_GENERATOR_DIR}/
 
 # prepare dowloads all dependencies and uses the build cache
 # this image inherits from cids-distribution-cache, so dependencies should be there already

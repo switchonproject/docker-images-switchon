@@ -18,8 +18,10 @@
                     and override properties defined in parent pom.xml
                 -->
                 <de.cismet.cidsCodebase>${env.CIDS_CODEBASE}</de.cismet.cidsCodebase>
+                <de.cismet.libDir>${env.MAVEN_LIB_DIR}</de.cismet.libDir>
                 <de.cismet.cidsDistDir>${env.CIDS_DISTRIBUTION_DIR}</de.cismet.cidsDistDir>
                 <de.cismet.cidsAccountExtension>${env.CIDS_ACCOUNT_EXTENSION}</de.cismet.cidsAccountExtension>
+                <maven.build.timestamp.format>dd/MM/yyyy</maven.build.timestamp.format>
             </properties>
             <repositories>
                 <repository>
