@@ -12,6 +12,7 @@ ENV CIDS_ACCOUNT_EXTENSION Switchon
 ENV CIDS_CODEBASE http://switchon-docker.cismet.de
 ENV CIDS_LOCAL_DIR ${CIDS_LIB_DIR}/local${CIDS_ACCOUNT_EXTENSION}
 ENV CIDS_STARTER_DIR ${CIDS_LIB_DIR}/starter${CIDS_ACCOUNT_EXTENSION}
+ENV UPDATE_SNAPSHOTS -U -Dmaven.clean.failOnError=false
 
 # The current switchon autodistribution creates a subdirectory for the client JNLPs. 
 # This is cids-distribution specific setting:
@@ -72,8 +73,8 @@ RUN ${CIDS_DISTRIBUTION_DIR}/utils/copy_client_starter.sh
 
 # WARNING: private data is still present in intermediate image layers! Don't push the image to public registries!
 # See https://github.com/docker/docker/issues/13490
-RUN rm -rf ${CIDS_DISTRIBUTION_DIR}/.private \
-    && rm -rf ${CIDS_GENERATOR_DIR}
+RUN rm -R ${CIDS_DISTRIBUTION_DIR}/.private \
+    && rm -R ${CIDS_GENERATOR_DIR}
 
 # add /tmp as volume since it may contain data that changes often 
 VOLUME /tmp
