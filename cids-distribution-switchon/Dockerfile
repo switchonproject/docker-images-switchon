@@ -35,8 +35,11 @@ EXPOSE 80
 COPY cidsDistribution/ ${CIDS_DISTRIBUTION_DIR}/
 
 # download the cids-distribution-switchon SNAPSHOT or RELEASE auto distribution 
-# RUN curl -fsSL https://github.com/switchonproject/cids-distribution-switchon/archive/v5.1.tar.gz | tar -xzC ${CIDS_GENERATOR_DIR}/
-RUN curl -fsSL https://github.com/switchonproject/cids-distribution-switchon/archive/dev.tar.gz | tar -xzC ${CIDS_GENERATOR_DIR}/
+# RUN curl -fsSL https://codeload.github.com/switchonproject/cids-distribution-switchon/tar.gz/v5.1 | tar -xzC ${CIDS_GENERATOR_DIR}/
+
+# USE docker ADD instead of RUN for SNPASHOT Builds to omit the cache and always download the latest DEV archive!
+ADD https://codeload.github.com/switchonproject/cids-distribution-switchon/tar.gz/dev /tmp/dev.tar.gz
+RUN tar -xzf /tmp/dev.tar.gz -C ${CIDS_GENERATOR_DIR}/
 
 # prepare dowloads all dependencies and uses the build cache
 # this image inherits from cids-distribution-cache, so dependencies should be there already

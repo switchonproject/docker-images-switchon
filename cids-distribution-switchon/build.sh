@@ -11,4 +11,4 @@
 #docker build --squash -t switchon/cids-distribution-switchon:latest -t switchon/cids-distribution-switchon:5.0 --build-arg expire_after=$(date +%Y-%m-%d:%H:%M:%S) .
 
 # DEV BUILD
-docker build --squash -t switchon/cids-distribution-switchon:5.0-SNAPSHOT -t switchon/cids-distribution-switchon:latest-snapshot --build-arg expire_after=$(date +%Y-%m-%d:%H:%M:%S) .
+docker build -t switchon/cids-distribution-switchon:5.0-SNAPSHOT -t switchon/cids-distribution-switchon:latest-snapshot --build-arg expire_after=$(date +%Y-%m-%d:%H:%M:%S) .
